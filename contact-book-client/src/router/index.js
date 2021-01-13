@@ -8,7 +8,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/contact/:index'
+    path: '/contact/:index',
+    name:'viewcontact',
+    component: ()=> import('../views/viewcontact.vue')
   }
 ]
 

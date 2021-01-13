@@ -38,7 +38,7 @@
                              even when the expected value is the same as the current -->
                             <button @click.prevent="mutateIndex(index)">X</button>
                         </div>
-                         <div @click='saveContacts(contact)' class="btn btn-save">Save contact</div>
+                         <div @click='saveContacts(contact)'  class="btn btn-save">Save contact</div>
                           <div @click="undo()" class="btn btn-unDo">Undo</div>
                         <div @click="addField" class="btn">Add custom field</div>
                         <div class=customFields>
@@ -123,7 +123,6 @@ export default {
         },
 
         localCommit(){
-            this.$store.commit('tempContact', this.contact)
             this.history[this.historyIndex] = Object.assign({}, this.contact)
             this.history[this.historyIndex].customFields = Object.assign({}, this.contact.fustomFields)
             this.historyIndex=this.history.length

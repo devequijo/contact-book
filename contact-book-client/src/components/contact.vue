@@ -1,17 +1,15 @@
 <template>
-
-
-
   <div class="contact">
-     <router-link to=""> {{contacto.fullname}} </router-link><button class='delete'>Delete</button>
+     <router-link :to="{name: 'viewcontact', params:{'index':index}}"> {{contacto.fullname}} </router-link><button @click="deleteContact(index)" class='delete'>Delete</button>
   </div>
 </template>
 
 <script>
-
+import {mapActions} from 'vuex'
 export default {
     name:'contact',
-    props: ['contacto']
+    props: ['contacto', 'index'],
+    methods:mapActions(['deleteContact'])
 }
 </script>
 

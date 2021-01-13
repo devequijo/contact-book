@@ -2,9 +2,9 @@
     <div class="main">
         <div @click="showCreateForm=true" class="btn">Add contact</div>
         <div class="contacts">
-            
-            <ul v-for="algo in contacts" :key=algo>      
-                <contact :contacto=algo></contact>
+         
+            <ul v-for="(algo, index) in contacts" :key=algo>      
+                <contact :index=index :contacto=algo></contact>
                 <create @hideForm="showCreateForm=false" v-show="showCreateForm"/>
                               
             </ul>        
@@ -23,7 +23,7 @@ export default {
             showCreateForm:false
         }
     },    
-    computed:mapGetters(['contacts', ]),
+    computed:mapGetters(['contacts']),
     components: {contact, create}
 }
 </script>
